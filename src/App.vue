@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <router-link to="/">Go to HOME</router-link>
-    <router-link to="/editor">Go to EDITOR</router-link>
+    <div class="buttons">
+      <router-link to="/">
+        <button>Home</button>
+      </router-link>
+      <router-link to="/editor">
+        <button>Editor</button>
+      </router-link>
+    </div>
+
+    <br />
 
     <router-view></router-view>
   </div>
@@ -22,5 +29,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  margin: 15px;
+  font-size: 2rem;
+  border: none;
+  text-decoration: underline;
+  background: transparent;
+  color: rgb(170, 166, 166);
+  cursor: pointer;
 }
 </style>
