@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <ckeditor
-      :editor="editor"
-      v-model="editorData"
-      :config="editorConfig"
-      :disabled="editorDisabled"
-    ></ckeditor>
+    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     <button v-on:click="emptyEditor()">Empty the editor</button>
 
     <h2>Editor data</h2>
@@ -21,9 +16,9 @@ export default {
   data() {
     return {
       editor: ClassicEditor,
-      editorData: "<p>Content of the editor.</p>",
+      editorData: "<p>Write something...</p>",
       editorConfig: {
-        toolbar: [],
+        //
       },
       editorDisabled: true,
     };
