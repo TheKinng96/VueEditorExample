@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <div class="buttons">
-      <router-link to="/">
-        <button>Home</button>
-      </router-link>
-      <router-link to="/editor">
-        <button>Editor</button>
+      <router-link
+        v-for="(button, index) in linkButtons"
+        :key="index"
+        :to="button.link"
+      >
+        <button>{{ button.name }}</button>
       </router-link>
     </div>
 
@@ -18,6 +19,15 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      linkButtons: [
+        { name: "Home", link: "/" },
+        { name: "Editor", link: "/editor" },
+        { name: "Posts", link: "/posts" },
+      ],
+    };
+  },
 };
 </script>
 
@@ -33,6 +43,7 @@ export default {
 
 .buttons {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 

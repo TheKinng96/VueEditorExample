@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
-    <button v-on:click="emptyEditor()">Empty the editor</button>
+    <ckeditor
+      :editor="editor"
+      v-model="editorData"
+      :config="editorConfig"
+    ></ckeditor>
+    <br />
+    <br />
+    <button @click="emptyEditor()">Empty the editor</button>
+    <button @click="savePost('button pressed', $event)">SAVE</button>
 
     <h2>Editor data</h2>
     <code>{{ editorData }}</code>
@@ -26,6 +33,13 @@ export default {
   methods: {
     emptyEditor() {
       this.editorData = "";
+    },
+    savePost(message, event) {
+      if (event) {
+        event.preventDefault();
+      }
+      this.$store.dispatch("gettingNewPost", this.editor.data);
+      alert(message);
     },
   },
 };

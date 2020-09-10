@@ -17,9 +17,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    gettingNewPost({ commit }, newPost) {
+    gettingNewPost({ commit, state }, newPost) {
       commit("updateNewPost", newPost);
       commit("updateAllPost", newPost);
+      console.log("running >>>", state.singlePost);
     },
   },
   getters: {
